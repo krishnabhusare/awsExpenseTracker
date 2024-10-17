@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const User = require('./models/user');
+const sequelize = require('./models/user');
+
 
 const app = express();
 app.use(cors());
@@ -14,12 +17,22 @@ app.post('/user/signup',async(req,res,next)=>{
         const email = req.body.email;
         const password = req.body.password;
 
-        const data = {name,email,password};
-        console.log(data);
+        
+
+        const signupdata = await User.create({name:name,email:email,password:password});
+       
+
+        res.status(201).json({signupdata:signupdata});
 
     }catch(err){
-        console.log(err);
+        res.status(403).json(err);
     }
 });
 
-app.listen(3000);
+sequelize.sync()
+.then(res=>{
+    app.listen(3000);
+})
+.catch(err=>{
+    console.log(err);
+})
