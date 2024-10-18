@@ -19,12 +19,4 @@ async function login(e){
         console.log(err);
      }
       
-     
-
-
-
-
-   
-
-    
 };
