@@ -1,22 +1,16 @@
-async function login(e){
-    try{
-
-   
+function login(e){
     e.preventDefault();
-    const email = e.target.email.value;
-    const password =e.target.password.value;
-    
-    const loginDetails = {email,password};
+    const loginDetails = {
+        email:e.target.email.value,
+        password:e.target.password.value
+    };
 
-    await axios.post('http://localhost:3000/user/login',loginDetails)
-    .then(res=>{
-        alert(res.data.message);
+    axios.post('http://localhost:3000/user/login',loginDetails)
+    .then(result=>{
+        alert(result.data.message);
+        window.location.href = '../expense/expense.html';
     })
     .catch(err=>{
-        document.body.innerHTML += `<div style='color:red'>${err.message}</div>`
+        document.body.innerHTML += `<div style='color:red'>${err}</div>`;
     })
-     }catch(err){
-        console.log(err);
-     }
-      
 };

@@ -3,30 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>frontend</title>
-    <link rel="stylesheet" href="style.css">
+    <title>signup</title>
 </head>
 <body>
-    <form id="form" onsubmit="signup(event)" class="form">
-        
+    <form onsubmit="signup(event)">
         <label for="name">Name:</label>
         <br>
-        <input type="text" name="name" id="name" required>
+        <input type="text" name="name" id="name">
         <br>
         <label for="email">Email:</label>
         <br>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email">
         <br>
-        <label for="password">password:</label>
+        <label for="password">Password:</label>
         <br>
-        <input type="text" name="password" id="password" required>
+        <input type="password" name="password" id="password">
         <br><br>
-        <button type="submit">Signup</button>
+        <button>signup</button>
     </form>
-    <br>
     <a href="../login/login.html">Existing User - login</a>
-    
+    <script src="signup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
 </body>
-<script src="signup.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
 </html>
